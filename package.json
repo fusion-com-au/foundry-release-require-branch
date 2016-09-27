@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "Requires git branch be a specific name, otherwise foundry release process bails.",
   "main": "lib/foundry-release-require-branch",
-  "scripts": {},
+  "scripts": {
+    "release": "foundry release",
+    "release-resume": "foundry resume"
+  },
   "keywords": [
     "foundry",
     "foundry-release",
@@ -28,6 +31,10 @@
   },
   "foundry": {
     "releaseCommands": [
+      {
+        "type": "customCommand",
+        "command": "./bin/foundry-release-require-branch update-files ${FOUNDRY_VERSION} ${FOUNDRY_MESSAGE}"
+      },
       "foundry-release-git",
       "foundry-release-npm"
     ]
