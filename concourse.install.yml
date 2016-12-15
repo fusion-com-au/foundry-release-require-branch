@@ -4,8 +4,13 @@ platform: linux
 image_resource:
   type: docker-image
   source:
-    repository: alpine-node:4
+    repository: alpine-node
+    tag: 4
+
+inputs:
+  - name: resource-repo
 
 run:
+  dir: resource-repo
   path: npm
   args: [install]

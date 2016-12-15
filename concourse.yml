@@ -4,13 +4,13 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: repo
+  - get: resource-repo
     trigger: true
   - task: install
-    file: repo/concourse.install.yml
+    file: resource-repo/concourse.install.yml
 
 resources:
-- name: repo
+- name: resource-repo
   type: git
   source:
     depth: 2
