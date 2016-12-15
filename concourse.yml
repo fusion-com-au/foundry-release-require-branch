@@ -1,0 +1,17 @@
+---
+jobs:
+- name: npm install
+  public: true
+  serial: true
+  plan:
+  - get: repo
+    trigger: true
+  - task: install
+    file: repo/concourse.install.yml
+
+resources:
+- name: repo
+  type: git
+  source:
+    depth: 2
+    uri: https://github.com/fusion-com-au/foundry-release-require-branch.git
